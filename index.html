@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEADLY Store - Jual Beli Akun Game Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deadly: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            card: '#1a1a1a',
+                            red: '#8b0000',
+                            redlight: '#dc2626',
+                            gray: '#2a2a2a',
+                            text: '#e5e5e5',
+                            muted: '#a3a3a3'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #8b0000, 0 0 10px #8b0000' },
+                            '100%': { boxShadow: '0 0 20px #dc2626, 0 0 30px #dc2626' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #dc2626 0%, #8b0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(139, 0, 0, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-inter antialiased bg-deadly-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-deadly-black/95 backdrop-blur-md border-b border-deadly-gray/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-skull text-3xl text-deadly-redlight animate-pulse-slow"></i>
+                    <span class="font-orbitron text-2xl font-bold tracking-wider text-white">
+                        DEADLY<span class="text-deadly-redlight">STORE</span>
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-deadly-text hover:text-deadly-redlight transition-colors font-medium">Home</a>
+                    <a href="#catalog" class="text-deadly-text hover:text-deadly-redlight transition-colors font-medium">Katalog</a>
+                    <a href="#how-to-buy" class="text-deadly-text hover:text-deadly-redlight transition-colors font-medium">Cara Beli</a>
+                    <a href="#payment" class="text-deadly-text hover:text-deadly-redlight transition-colors font-medium">Pembayaran</a>
+                    <a href="https://wa.me/6287866143552" target="_blank" class="bg-deadly-red hover:bg-deadly-redlight text-white px-6 py-2 rounded-full font-semibold transition-all hover:scale-105 flex items-center gap-2">
+                        <i class="fab fa-whatsapp"></i>
+                        Hubungi Kami
+                    </a>
+                </div>
+
+                <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-deadly-dark border-t border-deadly-gray">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block py-3 text-deadly-text hover:text-deadly-redlight">Home</a>
+                <a href="#catalog" class="block py-3 text-deadly-text hover:text-deadly-redlight">Katalog</a>
+                <a href="#how-to-buy" class="block py-3 text-deadly-text hover:text-deadly-redlight">Cara Beli</a>
+                <a href="#payment" class="block py-3 text-deadly-text hover:text-deadly-redlight">Pembayaran</a>
+                <a href="https://wa.me/6287866143552" class="block py-3 text-deadly-redlight font-semibold">WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid pt-20">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 bg-gradient-to-b from-deadly-red/10 via-transparent to-deadly-black"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-deadly-red/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-deadly-redlight/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-deadly-card border border-deadly-red/30 mb-8 animate-float">
+                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span class="text-sm text-deadly-muted">1000+ Transaksi Berhasil</span>
+            </div>
+
+            <h1 class="font-orbitron text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span class="block text-white">AKUN</span>
+                <span class="block gradient-text text-glow">PREMIUM</span>
+                <span class="block text-white">MURAH</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-deadly-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+                Jual beli akun game terpercaya dengan harga <span class="text-deadly-redlight font-semibold">DEADLY</span> murah. 
+                Garansi 100% aman, proses instan, support 24/7.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#catalog" class="group relative px-8 py-4 bg-deadly-red hover:bg-deadly-redlight text-white font-bold rounded-lg overflow-hidden transition-all hover:scale-105">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Lihat Katalog <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-deadly-redlight to-deadly-red opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="https://wa.me/6287866143552" target="_blank" class="px-8 py-4 border-2 border-deadly-gray hover:border-deadly-redlight text-white font-bold rounded-lg transition-all hover:bg-deadly-card flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-green-500"></i>
+                    Chat Admin
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-orbitron font-bold text-deadly-redlight">1000+</div>
+                    <div class="text-deadly-muted text-sm mt-1">Akun Terjual</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-orbitron font-bold text-deadly-redlight">500+</div>
+                    <div class="text-deadly-muted text-sm mt-1">Pelanggan</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-orbitron font-bold text-deadly-redlight">99%</div>
+                    <div class="text-deadly-muted text-sm mt-1">Puas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-orbitron font-bold text-deadly-redlight">24/7</div>
+                    <div class="text-deadly-muted text-sm mt-1">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-deadly-redlight text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Games Category -->
+    <section class="py-20 bg-deadly-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-4">GAME <span class="text-deadly-redlight">POPULER</span></h2>
+                <div class="w-24 h-1 bg-deadly-red mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-fire text-4xl text-orange-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">Free Fire</h3>
+                    <div class="absolute inset-0 bg-deadly-red/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-chess-knight text-4xl text-purple-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">Mobile Legends</h3>
+                </div>
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-parachute-box text-4xl text-yellow-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">PUBG Mobile</h3>
+                </div>
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-dragon text-4xl text-blue-400 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">Genshin Impact</h3>
+                </div>
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-crosshairs text-4xl text-red-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">Valorant</h3>
+                </div>
+                <div class="group relative bg-deadly-card rounded-xl p-6 text-center cursor-pointer hover:bg-deadly-gray transition-all card-hover border border-deadly-gray/50 hover:border-deadly-red/50">
+                    <i class="fas fa-ellipsis-h text-4xl text-deadly-muted mb-3 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="font-semibold text-sm">Lainnya</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="py-20 bg-deadly-black relative">
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div>
+                    <h2 class="font-orbitron text-3xl md:text-4xl font-bold mb-2">KATALOG <span class="text-deadly-redlight">AKUN</span></h2>
+                    <p class="text-deadly-muted">Pilih akun premium sesuai kebutuhanmu</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <button onclick="filterAccounts('all')" class="filter-btn active px-4 py-2 rounded-lg bg-deadly-red text-white text-sm font-medium transition-all" data-filter="all">Semua</button>
+                    <button onclick="filterAccounts('ml')" class="filter-btn px-4 py-2 rounded-lg bg-deadly-card text-deadly-muted hover:text-white text-sm font-medium transition-all border border-deadly-gray" data-filter="ml">ML</button>
+                    <button onclick="filterAccounts('ff')" class="filter-btn px-4 py-2 rounded-lg bg-deadly-card text-deadly-muted hover:text-white text-sm font-medium transition-all border border-deadly-gray" data-filter="ff">FF</button>
+                    <button onclick="filterAccounts('gi')" class="filter-btn px-4 py-2 rounded-lg bg-deadly-card text-deadly-muted hover:text-white text-sm font-medium transition-all border border-deadly-gray" data-filter="gi">GI</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="account-grid">
+                <!-- Account Card 1 -->
+                <div class="account-card bg-deadly-card rounded-2xl overflow-hidden border border-deadly-gray/50 card-hover group" data-category="ml">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-900 to-blue-900 flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-chess-knight text-8xl text-white/20 absolute"></i>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">READY</div>
+                        <div class="relative z-10 text-center">
+                            <div class="text-4xl font-orbitron font-bold text-white">MYTHIC</div>
+                            <div class="text-white/80 text-sm">Mobile Legends</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-1">Akun Mythic Glory</h3>
+                                <p class="text-deadly-muted text-sm">Skin Legend: 5 | Epic: 20</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-deadly-redlight">Rp450K</div>
+                                <div class="text-deadly-muted text-xs line-through">Rp600K</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-sm text-deadly-muted">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span>Level 60+</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-deadly-muted">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span>Win Rate 70%</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-deadly-muted">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span>Garansi 7 Hari</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/6287866143552?text=Halo%20DEADLY%20Store!%20Saya%20ingin%20membeli%20akun%20Mobile%20Legends%20Mythic%20Glory%20Rp450.000" target="_blank" class="block w-full py-3 bg-deadly-red hover:bg-deadly-redlight text-white text-center font-bold rounded-lg transition-all hover:shadow-lg hover:shadow-deadly-red/30">
+                            Beli Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Account Card 2 -->
+                <div class="account-card bg-deadly-card rounded-2xl overflow-hidden border border-deadly-gray/50 card-hover group" data-category="ff">
+                    <div class="relative h-48 bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center overflow-hidden">
+                        <i class="fas fa-fire text-8xl text-white/20 absolute"></i>
+                        <div class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">READY</div>
+                        <div class="relative z-10 text-center">
+                            <div class="text-4xl font-orbitron font-bold text-white">GRANDMASTER</div>
+                            <div class="text-white/80 text-sm">Free Fire</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-1">Akun GM Elite</h3>
+                                <p class="text-deadly-muted text-sm">Bundle: 15 | Senjata: 8</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-deadly-redlight">Rp280K</div>
+                                <div class="text-deadly-muted text-xs line-through">Rp350K</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2 mb-6">
+                            <div class="flex items-center gap-2 text-sm text-deadly-muted">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span>Level 70+</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-sm text-deadly-muted">
+                                <i class="fas fa-check text-green-500"></i>
+                                <span>Diamond: 5000+</span>
+                            </div>
+                       
